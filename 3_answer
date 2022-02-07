@@ -1,0 +1,28 @@
+3)) A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again.
+
+So if you have an SQL query that you write over and over again, save it as a stored procedure, and then just call it to execute it.
+
+3(b) 
+
+Creating stored procedure:
+
+CREATE PROCEDURE SelectSpecial
+AS
+SELECT CONCAT(EmployeesTable.FIRST_NAME,'  ' ,EmployeesTable.LAST_NAME),
+EmployeesTable.designation, max(VARIABLES_AMOUNT.VariablesDetails) AND MIN(VARIABLES_AMOUNT.VariablesDetails)
+FROM EmployeesTable, VariablesDetails
+WHERE EmployeesTable.EMP_
+ID  = VariablesDetails.EMP_REF_ID;
+
+GO;
+
+
+
+Executing the stored procedure::;
+
+
+EXEC SelectSpecial;
+
+
+
+
