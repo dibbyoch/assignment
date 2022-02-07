@@ -1,0 +1,109 @@
+(2)
+the four types of joins are  left  outer join, right outer join , inner join, and full outer join.
+
+
+** Note: As per the question, the tables mentioned Employees table and Designation Table has different coloumn names, this is in contradiction to  the syntax of joins to be performed on these tables as the syntax requires matching coloumn name as variable 
+
+
+Inner join ::
+On employees table and designation table
+
+SELECT EmployeesTable.FIRST_NA
+ME,DesignationTable.EMP_TITLE
+FROM EmployeesTable 
+INNER JOIN DesignationTable
+ON EmployeesTable.EMP_
+ID = DesignationTable.EMP_REF_ID;
+
+
+Right outer join :::
+SELECT EmployeesTable.FIRST_NA
+ME,DesignationTable.EMP_TITLE
+FROM EmployeesTable 
+RIGHT JOIN DesignationTable
+ON EmployeesTable.EMP_
+ID = DesignationTable.EMP_REF_ID;
+
+
+Left outer join :::
+SELECT EmployeesTable.FIRST_NA
+ME,DesignationTable.EMP_TITLE
+FROM EmployeesTable 
+LEFT JOIN DesignationTable
+ON EmployeesTable.EMP_
+ID = DesignationTable.EMP_REF_ID;
+
+
+
+Full outer join:::
+SELECT EmployeesTable.FIRST_NA
+ME,DesignationTable.EMP_TITLE
+FROM EmployeesTable 
+FULL OUTER JOIN DesignationTable
+ON EmployeesTable.EMP_
+ID = DesignationTable.EMP_REF_ID;
+
+MSSQL commands::
+
+SELECT CONCAT(EmployeesTable.FIRST_NAME,'  ' ,EmployeesTable.LAST_NAME),
+EmployeesTable.designation, max(VARIABLES_AMOUNT.VariablesDetails) AND MIN(VARIABLES_AMOUNT.VariablesDetails)
+FROM EmployeesTable, VariablesDetails
+WHERE EmployeesTable.EMP_
+ID  = VariablesDetails.EMP_REF_ID;
+
+SELECT EmployeesTable.SALARY + VariablesDetails.VARIABLES_AMOUNT AS AMOUNT, EmployeesTable.DESIGNATION
+FROM EmployeesTable,VariablesDetails
+WHERE EmployeesTable.JOINING_DATE
+BETWEEN '2019-01-01 00:00:00' AND '2019-12-12 00:00:00';
+
+2(c) A cross join is a type of join that returns the Cartesian product of rows from the tables in the join. In other words, it combines each row from the first table with each row from the second table.
+
+Cross joining Employees table and Designation table::
+SELECT EmployeesTable.FIRST_NAME, DesignationTable.EMP_TITLE
+FROM EmployeesTable
+CROSS JOIN DesignationTable;
+
+
+
+2(d)  The SELECT statement has the following clauses:
+•SELECT
+•FROM
+•WHERE
+•GROUP BY
+•HAVING
+•ORDER BY
+•OFFSET
+•FETCH FIRST
+•UNION
+•INTERSECT
+•EXCEPT
+•WITH
+
+
+preference orders of them are:::
+
+FROM and JOINs
+The FROM clause, and subsequent JOINs are first executed to determine the total working set of data that is being queried.
+
+ WHERE
+Once we have the total working set of data, the first-pass WHERE constraints are applied to the individual rows, and rows that do not satisfy the constraint are discarded. 
+
+ GROUP BY
+The remaining rows after the WHERE constraints are applied are then grouped based on common values in the column specified in the GROUP BY clause. As a result of the grouping, there will only be as many rows as there are unique values in that column. 
+
+
+ HAVING
+If the query has a GROUP BY clause, then the constraints in the HAVING clause are then applied to the grouped rows, discard the grouped rows that don't satisfy the constraint. 
+
+ SELECT
+Any expressions in the SELECT part of the query are finally computed.
+
+ DISTINCT
+Of the remaining rows, rows with duplicate values in the column marked as DISTINCT will be discarded.
+
+ ORDER BY
+If an order is specified by the ORDER BY clause, the rows are then sorted by the specified data in either ascending or descending order.
+
+ LIMIT / OFFSET
+Finally, the rows that fall outside the range specified by the LIMIT and OFFSET are discarded, leaving the final set of rows to be returned from the query.
+
